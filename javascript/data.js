@@ -20,6 +20,7 @@ fetch("https://covid-193.p.rapidapi.com/statistics", {
  	}
  })
 
+ console.log(av_data.length);
  console.log(av_data);
  console.log(av_label);
  console.log(dat);
