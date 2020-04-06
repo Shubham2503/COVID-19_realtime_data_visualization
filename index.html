@@ -8,9 +8,17 @@
 <body>
 <h1 id="status" align="center"> waiting... </h1>
 <canvas id="myChart" width="740" height="350"></canvas>
+<p>
+<input type="search" id="site-search" name="q" aria-label="Search through site content" align="center">
+<button onclick="fetch_for()" align="center">Search</button>	
+</p>
 <h1 id="status_" align="center"> wait... </h1>
-<canvas id="Chart" width="740" height="350"></canvas>
-<script type="text/javascript" src="javascript/data.js"></script>	
+<script type="text/javascript" src="javascript/data.js"></script>
 <script type="text/javascript" src="javascript/data2.js"></script>
+<script type="text/javascript">
+    document.getElementById("site-search").value = 'INDIA';
+   	fetch_for();
+</script>
+<canvas id="Chart" width="740" height="350"></canvas>
 </body>
 </html>

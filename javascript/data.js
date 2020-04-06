@@ -13,7 +13,7 @@ fetch("https://covid-193.p.rapidapi.com/statistics", {
 
  dat.forEach(a =>
  {
- 	if(a.cases.active > 2000 && a.country != "All")
+ 	if(a.cases.active > 2000 && a.country != "World" && a.country != "All")
  	{
 	 	av_label.push(a.country);
 	 	av_data.push(a.cases.active);
