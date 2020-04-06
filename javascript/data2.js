@@ -1,11 +1,15 @@
-function fetch_for()
-{
+function fetch_for(){
     document.getElementById("status_").innerHTML = "Wait";
+    var canvas = document.getElementById("Chart");
+        var ctx = document.getElementById("Chart").getContext("2d");
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 
     let x = document.getElementById("site-search").value;
     var d;
-    var av_case=[],av_time = [],total_case = [],recovered = [];
     console.log(x);
+    var av_case=[],av_time = [],total_case = [],recovered = [],deaths = [];
     fetch("https://covid-193.p.rapidapi.com/history?country=" + x, {
     	"method": "GET",
     	"headers": {
@@ -17,7 +21,6 @@ function fetch_for()
     .then(response => response.json())
     .then(data => {
      d = data.response;
-
      d.forEach(a =>
      {
      	if(av_time[av_time.length - 1] != a.day)
@@ -26,12 +29,16 @@ function fetch_for()
     	 	av_case.push(a.cases.active);
             total_case.push(a.cases.total);
             recovered.push(a.cases.recovered);
+            deaths.push(a.deaths.total);
      	}
      	
      })
 
      av_case.reverse();
      av_time.reverse();
+     total_case.reverse();
+     recovered.reverse();
+     deaths.reverse();
 
      console.log(av_case);
      console.log(av_time);
@@ -42,33 +49,43 @@ function fetch_for()
     	console.log(err);
     });
 
+    function chart(){
 
-
-    async function chart(){
         document.getElementById("status_").innerHTML = " ";
         var ctx = document.getElementById("Chart").getContext("2d");
-        var myChart = new Chart(ctx, {
+        var lineChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: av_time,
                 datasets: [{
-                    label: '# of Cases in ' + x,
+                    label: 'Active Cases of ' + x,
                     data: av_case,
-                    backgroundColor:'rgba(143, 88, 249, 0.2)',
-                    borderColor:'rgba(143, 88, 249, 1)',
-                    borderWidth: 1,
-                    fill : false
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        },
-                        stacked: true
-                    }]
-                }
+                    backgroundColor: 'rgba(171, 41, 123, 0.2)',
+                    borderColor: 'rgba(171, 41, 123, 1)',
+                    fill: false
+                },{
+                    label: 'Total Cases',
+                    data: total_case,
+                    type: 'line',
+                    backgroundColor: 'rgba(143, 88, 249, 0.2)',
+                    borderColor: 'rgba(143, 88, 249, 1)',
+                    fill: false
+                },{
+                    label: 'Recovered',
+                    data: recovered,
+                    type: 'line',
+                    backgroundColor: 'rgba(162, 218, 22, 0.2)',
+                    borderColor: 'rgba(162, 218, 22, 1)',
+                    fill: false
+                },{
+                    label: 'Deaths',
+                    data: deaths,
+                    type: 'line',
+                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                    borderColor: 'rgba(255, 0, 0, 1)',
+                    fill: false
+                }],
+                labels: av_time,
+
             }
         });
     }
