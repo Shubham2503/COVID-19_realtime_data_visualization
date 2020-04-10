@@ -1,9 +1,8 @@
-function fetch_for(){
+async function fetch_for(){
     document.getElementById("status_").innerHTML = "Wait";
-    var canvas = document.getElementById("Chart");
-        var ctx = document.getElementById("Chart").getContext("2d");
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+     $('#Chart').remove(); // this is my <canvas> element
+  $('#ab').append('<canvas id="Chart" width="740" height="350"></canvas>');
 
 
     let x = document.getElementById("site-search").value;
@@ -49,7 +48,7 @@ function fetch_for(){
     	console.log(err);
     });
 
-    function chart(){
+    async function chart(){
 
         document.getElementById("status_").innerHTML = " ";
         var ctx = document.getElementById("Chart").getContext("2d");
