@@ -1,0 +1,9 @@
+.navbar {
+    margin: 0px 0px;
+}
+.navbar-brand {
+    font-size: 2.5em;
+}
+.navbar .navbar-item:hover {
+    background-color: transparent;
+}

@@ -50,7 +50,7 @@ const Chart = ({country}) => {
     );
 
     return(
-        <div className={styles.container}>
+        <div className={styles.container} style={{width:"85%"}}>
             {lineChart}
         </div> 
     )
