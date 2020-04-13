@@ -119,6 +119,9 @@ const Chart = () => {
                 }],
                 
             }}
+            option = {{
+                responsive: true,
+            }}
         />) : null
     );
 

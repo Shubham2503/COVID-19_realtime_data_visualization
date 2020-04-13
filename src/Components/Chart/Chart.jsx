@@ -46,12 +46,17 @@ const Chart = ({country}) => {
                 }],
                 
             }}
+            option = {{
+                responsive: true,
+            }}
         />) : null
     );
 
     return(
-        <div className={styles.container} style={{width:"85%"}}>
-            {lineChart}
+        <div class="wrapper">
+            <div className={styles.chart}>
+                {lineChart}
+            </div>
         </div> 
     )
 }

@@ -21,6 +21,7 @@ export const fetchData = async (country) => {
                 "country": con
             }
         });
+        // console.log(response.data.response);
         return response.data.response;
     } catch (error) {
         console.log(error);
@@ -53,6 +54,7 @@ export const fetchStats = async () => {
         });
 
         const stats = response.data.response;
+        // console.log(stats);
         const modifiedData = stats.map((dailyData) => ({
             confirmed: dailyData.cases.total,
             country: dailyData.country,
@@ -73,7 +75,7 @@ export const fetchStats = async () => {
         {
             if(modifiedData[i].country == 'All' || modifiedData[i].country == 'Europe'|| modifiedData[i].country == 'North-America')
             {
-                console.log(modifiedData[i].country);
+                // console.log(modifiedData[i].country);
                 modifiedData.splice(i, 1);
             }
         }
@@ -81,13 +83,13 @@ export const fetchStats = async () => {
         {
             if(modifiedData[i].country == 'All' || modifiedData[i].country == 'Europe'|| modifiedData[i].country == 'North-America')
             {
-                console.log(modifiedData[i].country);
+                // console.log(modifiedData[i].country);
                 modifiedData.splice(i, 1);
             }
         }
-        console.log(modifiedData);
+        // console.log(modifiedData);
         const modifiedD = modifiedData.splice(0, 30);
-        console.log(modifiedD);
+        // console.log(modifiedD);
         return modifiedD;
     } catch (error) {
         console.log(error);
