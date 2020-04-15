@@ -48,6 +48,12 @@ const Chart = ({country}) => {
             }}
             option = {{
                 responsive: true,
+                scales: {
+                    xAxes: [{
+                      ticks: {
+                        minRotation: 90
+                      }
+                    }]
             }}
         />) : null
     );
