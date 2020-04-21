@@ -54,7 +54,7 @@ const Chart = ({country}) => {
                         minRotation: 90
                       }
                     }]
-            }}
+            }}}
         />) : null
     );
 
