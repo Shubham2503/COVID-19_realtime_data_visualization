@@ -73,7 +73,7 @@ export const fetchStats = async () => {
         console.log(modifiedData);
         for (let i = 0; i < modifiedData.length - 1; i++)
         {
-            if(modifiedData[i].country == 'All' || modifiedData[i].country == 'Europe'|| modifiedData[i].country == 'North-America')
+            if(modifiedData[i].country == 'All' || modifiedData[i].country == 'Europe'|| modifiedData[i].country == 'North-America' || modifiedData[i].country == 'Asia' || modifiedData[i].country == 'South-America')
             {
                 // console.log(modifiedData[i].country);
                 modifiedData.splice(i, 1);
@@ -81,7 +81,7 @@ export const fetchStats = async () => {
         }
         for (let i = 0; i < modifiedData.length - 1; i++)
         {
-            if(modifiedData[i].country == 'All' || modifiedData[i].country == 'Europe'|| modifiedData[i].country == 'North-America')
+            if(modifiedData[i].country == 'All' || modifiedData[i].country == 'Europe'|| modifiedData[i].country == 'North-America' || modifiedData[i].country == 'Asia' || modifiedData[i].country == 'South-America')
             {
                 // console.log(modifiedData[i].country);
                 modifiedData.splice(i, 1);
@@ -89,7 +89,7 @@ export const fetchStats = async () => {
         }
         // console.log(modifiedData);
         const modifiedD = modifiedData.splice(0, 30);
-        // console.log(modifiedD);
+        console.log(modifiedD);
         return modifiedD;
     } catch (error) {
         console.log(error);
